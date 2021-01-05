@@ -21,4 +21,35 @@ def numDecodings(string):
     print(dp)
     print(dp[len(dp)-1])
 
-numDecodings(string)
+
+
+
+
+
+
+
+
+
+# 1 2 3 1 2
+
+
+def decodeWys(string):
+    l = [0 for i in range(len(string))]
+    if string[0] is not '0':
+        l[0] = 1
+    print(string)
+    for i in range(1, len(string)):
+        one = int(string[i])
+        two = int(string[i-1: i + 1])
+        print(one, two)
+        if one is not 0:
+            l[i] += l[i-1]
+        if 10 <= two <= 26:
+            if i-2 >= 0:
+                l[i] += l[i-2]
+            else:
+                l[i] += 1
+    print(l)
+    print(l[len(l)-1])
+
+decodeWys("12312")
