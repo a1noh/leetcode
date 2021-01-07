@@ -1,4 +1,4 @@
-string = "12312"
+string = "12330"
 
 def numDecodings(string):
     print(string)
@@ -21,7 +21,7 @@ def numDecodings(string):
     print(dp)
     print(dp[len(dp)-1])
 
-
+numDecodings(string)
 
 
 
@@ -52,4 +52,25 @@ def decodeWys(string):
     print(l)
     print(l[len(l)-1])
 
-decodeWys("12312")
+#decodeWys("12312")
+
+def fibo(n):
+    l = [0, 1]
+    if n == 1:
+        return 0
+    count = 2
+    while count < n:
+        temp = l[0]
+        l[0] = l[1]
+        l[1] = temp + l[0]
+        count+=1
+
+    return l[-1]
+# 0 1 1 2 3
+print(fibo(5))
+
+# 1 2 3 1 2 1
+# 1 2 3 3 6
+def decodeWays(string):
+    sum = 0
+
