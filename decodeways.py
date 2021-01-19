@@ -1,4 +1,4 @@
-string = "12330"
+string = "12312"
 
 def numDecodings(string):
     print(string)
@@ -21,14 +21,39 @@ def numDecodings(string):
     print(dp)
     print(dp[len(dp)-1])
 
-numDecodings(string)
 
+def numDecodings(self, s):
+    """
+    :type s: str
+    :rtype: int
+    """
+    # 2267
+    dp = [0, 0, 0]
 
+    if s[0] != '0':
+        dp[1] = 1
 
+    for i in range(1, len(s)):
+        print(dp)
+        x = int(s[i])
+        y = int(s[i - 1: i + 1])
 
+        if x != 0:
+            dp[2] += dp[1]
+            print(dp)
+        if 10 <= y <= 26:
+            if i - 2 >= 0:
+                dp[2] += dp[0]
+            else:
+                dp[2] += 1
 
+        dp[0] = dp[1]
+        dp[1] = dp[2]
+        dp[2] = 0
 
+    return dp[-2]
 
+numDecodingss(string)
 
 # 1 2 3 1 2
 
@@ -66,8 +91,7 @@ def fibo(n):
         count+=1
 
     return l[-1]
-# 0 1 1 2 3
-print(fibo(5))
+
 
 # 1 2 3 1 2 1
 # 1 2 3 3 6
